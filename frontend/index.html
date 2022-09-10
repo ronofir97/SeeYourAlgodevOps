@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/bootstrap-grid.min.css"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/frontSortingStyle.css">
+  <title>SeeYourAlgo</title>
+</head>
+
+<body>
+  <div class="container" id="mainRequestDiv">
+    <div class="container-fluid text-center">
+      <h1 class="display-3 m-2 fw-bold">SeeYourAlgo</h1>
+    </div>
+    <div class="container" id="startPageContainer">
+      <div class="btn-group">
+        <button type="button" class="btn btn-dark rounded-circle" id="startButton" data-bs-toggle="modal"
+          data-bs-target="#exampleModal">
+          START
+        </button>
+      </div>
+      <!-- <button type="button" id="saveResults" class="btn btn-dark p-3 m-4 float-left" ata-bs-toggle="modal"
+        data-bs-target="#tt">Show my saved results</button> -->
+    </div>
+    <div class="btn-group">
+      <button type="button" class="btn btn-dark p-3 m-4 float-left" id="resButton" data-bs-toggle="modal"
+        data-bs-target="#SavedResModal" onclick="ShowSavedResults()">
+        Show my saved results
+      </button>
+    </div>
+  </div>
+
+
+  <!-- Modal of algo runing -->
+  <div class="modal fade" id="exampleModal" data-bs-backdrop='static' tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addBugiframeTitle">Run algorithm</h5>
+          <button type="button" id="closeModal" onclick="CloseModalHandle()" class="close" data-bs-dismiss="modal"
+            aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <form id="RunAlgo">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="text-align-center" for="Channel">Choose an algorithm...</label>
+                <select id="NameOfAlgo" class="form-control p-2 m-2" name="NameOfAlgo">
+                  <option selected class="text-align-center">Choose...</option>
+                  <option class="text-align-center p-1 m-1">BubbleSort</option>
+                  <option class="text-align-center p-1 m-1">HeapSort</option>
+                  <option class="text-align-center p-1 m-1">SelectionSort</option>
+                  <option class="text-align-center p-1 m-1">QuickSort</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="LenghtOfArray">Choose lenght of array..</label>
+              <select id="LenghtOfArray" class="form-control p-2 m-2" name="LenghtOfArray">
+                <option selected class="text-align-center">Choose...</option>
+                <option class="text-align-center">1</option>
+                <option class="text-align-center">2</option>
+                <option class="text-align-center">3</option>
+                <option class="text-align-center">4</option>
+                <option class="text-align-center">5</option>
+                <option class="text-align-center">6</option>
+                <option class="text-align-center">7</option>
+                <option class="text-align-center">8</option>
+                <option class="text-align-center">9</option>
+                <option class="text-align-center">10</option>
+              </select>
+            </div>
+            <button class="close btn btn-dark m-2" type="submit" data-bs-toggle="modal"
+              data-bs-target="#ResModal">RUN</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!--Modal of results -->
+  <div class="modal fade" id="SavedResModal" data-bs-backdrop='static' tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addBugiframeTitle">Your saved results: (scroll it if you need)</h5>
+          <button type="button" id="closeModal" onclick="CloseModalHandle()" class="close" data-bs-dismiss="modal"
+            aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <form id="RunAlgo">
+            <div class="form-row">
+            </div>
+            <div class="form-group">
+              <label for="LenghtOfArray">All results:</label>
+              <textarea class="form-control" id="textAreaOfSavedResults" rows="15"></textarea>
+            </div>
+            <button class="btn btn-dark m-2" onclick="CleaerSavedResults()">Clear all results</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container rounded-circle" id="resSectin">
+    <div class="modal fade" id="ResModal" data-bs-backdrop='static' tabindex="-1" aria-labelledby="--"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-align-center" id="addBugiframeTitle">Results</h5>
+            <button type="button" id="closeModal" class="close" data-bs-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-row">
+              <div class="form-group m-2">
+                <label class="text-align-center">Number of actions performed</label><br>
+                <input type="text" class="blocText p-2 m-2 text-align-center" id="numberOfrActions">
+              </div>
+            </div>
+            <div class="form-row m-2">
+              <div class="form-group">
+                <label class="text-align-center">The array befor the sorting</label><br>
+                <input type="text" class="blocText p-2 m-2 text-align-center" id="beforSort">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group m-2">
+                <label class="text-align-center">The array after the sorting</label><br>
+                <input type="text" class="blocText p-2 m-2 text-align-center" id="afterSort">
+              </div>
+            </div>
+            <div class="container" id="startPageContainer">
+              <div class="btn-group">
+                <button type="button" class="btn btn-dark" id="runagain" data-bs-toggle="modal"
+                  data-bs-target="#exampleModal">
+                  I WANT AGAIN..!
+                </button>
+              </div>
+              <div class="btn-group">
+                <button type="button" class="btn btn-dark" id="saveresults" onclick="SaveResultsHandle()">
+                  SAVE RESULTS
+                </button>
+              </div>
+            </div>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="frontSortingScript.js"></script>
+  <script src="/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/jquery.js"></script>
+  <script src="/js/table2Ex.js"></script>
+  <script>
+    $("#RunAlgo").submit(function (e) {
+      e.preventDefault();
+      SubmitClickRunAlgo();
+    });
+  </script>
+
+
+</body>
+
+</html>

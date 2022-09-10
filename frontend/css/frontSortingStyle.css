@@ -1,0 +1,45 @@
+
+body {
+    text-align: center; 
+    vertical-align: middle;
+    background: linear-gradient(-45deg, #c0f0f0, #ffe0fa, #bcf1ff, #c9ffe2);
+    background-size: 400% 400%;
+    animation: gradient 4s ease infinite;
+   
+}
+    
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+.lableToCenter{
+    text-align: center;
+}
+.text-align-center{
+    text-align: center;
+}
+#selectSubjectButton{
+    width: 30%;
+    height: 50%;
+}
+
+#startButton{
+    margin-top: 50px;
+    width: 300px;
+    height: 300px;
+    font-size:50px;
+} 
+#addBugiframeTitle{
+    text-align: center;
+}
+
+#saveResults{
+    text-align: left;
+}
